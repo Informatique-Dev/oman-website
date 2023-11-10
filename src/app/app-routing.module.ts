@@ -1,8 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from './shared/shared.module';
+import { RootComponent } from './core/Layout/root/root.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: RootComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+      },
+    ]
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
