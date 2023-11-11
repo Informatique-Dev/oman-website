@@ -1,0 +1,151 @@
+#ministry-section {
+  background-color: #fbfbfb;
+
+  button {
+    padding: 9px 20px;
+    width: 150px;
+    margin-bottom: -33px;
+    background: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+    color: #217d73;
+    border: none;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #217d73;
+      color: #ffffff;
+    }
+  }
+}
+
+#popular-electrontic-serivce {
+  background-color: #e7f4f2;
+
+  .card {
+    border-radius: 8px;
+    border-top: 5px solid #217d73;
+
+    .card-text {
+      word-spacing: -3px;
+      font-size: 14px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: end;
+      color: #8b3c8f;
+    }
+  }
+}
+
+#hint-of-ministry {
+  background-color: #fbfbfb;
+  position: relative;
+
+  .circle-icon {
+    margin-top: -20px;
+    width: 60px;
+    height: 60px;
+    background-color: #8b3c8f;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+
+  .card {
+    background-color: transparent;
+    outline: none !important;
+    border: none;
+    .position-relative .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .card-text {
+      word-spacing: -3px;
+      font-size: 14px;
+    }
+
+    .card-title {
+      word-spacing: -3px;
+    }
+    .more-btn {
+      padding: 6px 16px;
+      width: 150px;
+      margin-bottom: -33px;
+      background: #ffffff;
+      font-size: 17px;
+      font-weight: 400;
+      color: #8b3c8f;
+      border: 0.9px solid #8b3c8f;
+      outline-color: #8b3c8f;
+      border-radius: 8px;
+      letter-spacing: -1px;
+    }
+    .message-btn {
+      width: 30px;
+      height: 30px;
+      padding: 26px;
+      font-size: 25px;
+      background-color: #8b3c8f;
+      color: white;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
+
+.offcanvas {
+  margin-top: 100px;
+  .btn-close {
+    color: #8b3c8f !important;
+    font-size: 12px;
+    border-radius: 50%;
+    border: 2px solid #8b3c8f;
+    outline-color: #8b3c8f;
+  }
+  .offcanvas-body .card {
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    border: none;
+    .detail-txt,
+    i {
+      text-decoration: none;
+      color: #8b3c8f;
+    }
+  }
+  .canvas-footer {
+    background-color: #f9f9f9;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #ced4da;
+    button {
+      padding: 10px 52px;
+      font-size: 20px;
+      font-weight: 900;
+      background-color: #8b3c8f;
+      color: #ffffff !important;
+      border-radius: 8px;
+      outline-color: #8b3c8f;
+    }
+  }
+}
