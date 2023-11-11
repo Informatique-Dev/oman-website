@@ -7,6 +7,7 @@ import { ApplicantComponent } from './new-request/applicant/applicant.component'
 import { AttatchmentComponent } from './new-request/attatchment/attatchment.component';
 import { PaymentComponent } from './new-request/payment/payment.component';
 import { ApplyPopupComponent } from './new-request/apply-popup/apply-popup.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -26,6 +27,6 @@ const routes: Routes = [
     AttatchmentComponent,
     PaymentComponent,
     ApplyPopupComponent,],
-  imports: [CommonModule,RouterModule.forChild(routes)],
+  imports: [CommonModule,SharedModule,RouterModule.forChild(routes)],
 })
 export class PagesModule {}
