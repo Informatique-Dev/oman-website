@@ -1,0 +1,37 @@
+<div class="container mt-3">
+  <div class="row d-flex justify-content-center pt-3">
+    <h5 class="text-center p-2" style="background-color: #a28ca3;color: white;height: 50px;">طلب بطاقة حيازة زراعيه</h5>
+    <div class="col-12">
+      <mat-stepper [linear]="isLinear" #stepper class="mt-2 stepper" dir="rtl">
+
+        <mat-step >
+          <form>
+            <ng-template matStepLabel> مقدم الطلب</ng-template>
+            <app-applicant ></app-applicant>
+          </form>
+        </mat-step>
+        <mat-step >
+          <form>
+            <ng-template matStepLabel>
+                 الوثائق والمرفقات المطلوبة
+
+            </ng-template>
+            <app-attatchment (moveNext)="moveNext()"></app-attatchment>
+          </form>
+        </mat-step>
+        <mat-step label="">
+          <form>
+            <ng-template matStepLabel>
+            
+             رسوم الاصدار
+
+            </ng-template>
+            <app-payment (moveNext)="moveNext()"></app-payment>
+          </form>
+        </mat-step>
+      
+
+      </mat-stepper>
+    </div>
+  </div>
+</div>

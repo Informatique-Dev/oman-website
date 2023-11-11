@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row w-75 mx-auto">
+    <div class="col-sm-12 col-12 ">
+      <div class="mb-3 col-5">
+        <label for="exampleFormControlInput1" class="form-label">اسم الخدمة  </label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" طلب بطاقة حيازة زراعيه">
+      </div>
+      <div class=" d-flex">
+        <div class="col-5">
+          <label for="exampleFormControlInput1" class="form-label"> رسوم الاصدار </label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="(3) ريال عمانى">
+        </div>
+        <div class=" me-5" style="margin-top: 3.7%;">
+          <button  class="btn  fs-5" matStepperNext mat-stroked-button  style="background-color:#913f97; color: white;"> سدد الان</button>
+
+        </div>
+      </div>
+
+    </div>
+
+      <div class="d-flex justify-content-center mt-5">
+ 
+        <button type="button"  class="btn mt-2" (click)="openDialog()"  mat-stroked-button  style="color:#913f97">تقديم الطلب</button>
+        <button matStepperPrevious mat-flat-button  class="btn mt-2 fs-5 p-2 px-3 mx-2 " style="color:#913f97;background-color: rgb(214, 213, 213);">
+          السابق
+        </button>
+      </div>
+
+</div>
