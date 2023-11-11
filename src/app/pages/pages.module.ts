@@ -8,6 +8,8 @@ import { AttatchmentComponent } from './new-request/attatchment/attatchment.comp
 import { PaymentComponent } from './new-request/payment/payment.component';
 import { ApplyPopupComponent } from './new-request/apply-popup/apply-popup.component';
 import { SharedModule } from '../shared/shared.module';
+import { LoginComponent } from './login/login.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 const routes: Routes = [
   {
@@ -18,6 +20,10 @@ const routes: Routes = [
     path: 'request',
     component: NewRequestComponent,
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 ];
 
 @NgModule({
@@ -26,7 +32,8 @@ const routes: Routes = [
     ApplicantComponent,
     AttatchmentComponent,
     PaymentComponent,
-    ApplyPopupComponent,],
-  imports: [CommonModule,SharedModule,RouterModule.forChild(routes)],
+    ApplyPopupComponent,
+    LoginComponent],
+  imports: [CommonModule,SharedModule,RouterModule.forChild(routes), MatTabsModule],
 })
 export class PagesModule {}
