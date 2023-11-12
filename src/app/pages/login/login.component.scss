@@ -31,3 +31,7 @@
     background-color: #8B3C8F;
     color: white;
 }
+
+::ng-deep .mat-tab-label {
+    font-size: x-large;
+}

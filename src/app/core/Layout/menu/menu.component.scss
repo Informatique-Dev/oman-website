@@ -1,10 +1,21 @@
+.menu {
+    color: gray;
+    font-size: 14px;
+}
+
 .login-btn {
     background-color: #8B3C8F;
     color: white;
+    font-size: 14px;
+}
+
+.login-btn i {
+    font-size: 17px;
 }
 
 .active span {
     color: #8B3C8F;
+    font-weight: bold;
 }
 
 .active i {
