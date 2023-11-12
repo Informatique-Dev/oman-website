@@ -1,18 +1,21 @@
-<div class="container mt-3">
-  <div class="row d-flex justify-content-center pt-3">
-    <h5 class="text-center p-2" style="background-color: #a28ca3;color: white;height: 50px;">طلب بطاقة حيازة زراعيه</h5>
+<div class="container-fluid mt-3">
+  <div class="row" id="img-section">
+    <img src="assets/w21.webp" class="image w-100 p-0 m-0" height="150" />
+  </div>
+  <div class="row d-flex justify-content-center">
+    <h5 class="text-center p-2" style="background-color: #ebebeb;height: 50px;">طلب بطاقة حيازة زراعيه</h5>
     <div class="col-12">
       <mat-horizontal-stepper  #stepper class="mt-2 stepper">
         <ng-template matStepperIcon="person">
-          <mat-icon fontIcon="person"></mat-icon>
+          <i class="fa-solid fa-user"></i>
         </ng-template>
 
         <ng-template matStepperIcon="camera_roll">
-          <mat-icon fontIcon="camera_roll"></mat-icon>
+          <i class="fa-solid fa-camera-retro"></i>
         </ng-template>
 
         <ng-template matStepperIcon="monetization_on">
-          <mat-icon fontIcon="monetization_on"></mat-icon>
+          <i class="fa-solid fa-hand-holding-dollar"></i>
         </ng-template>
 
         <mat-step label="مقدم الطلب" state="person">
