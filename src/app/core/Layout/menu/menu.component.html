@@ -2,16 +2,30 @@
     <div class="col-2"></div>
     <div class="col-7 text-center mt-2" style="color: gray; font-size: 15px;">
         <div class="d-flex">
-            <button mat-button class="mx-3 cursor-pointer" [routerLink]="['/home']" routerLinkActive="mat-accent">الرئيسية</button>
-            <button mat-button class="mx-3">قطاعات الوزارة <i class="fa-solid fa-chevron-down"></i></button>
-            <button mat-button class="mx-3 cursor-pointer" [routerLink]="['/home/electronic-serivce']" routerLinkActive="mat-accent">الخدمات الإلكترونية <i class="fa-solid fa-chevron-down"></i></button>
-            <button mat-button class="mx-3 cursor-pointer" routerLink="/home/news" routerLinkActive="mat-accent">ألأخبار <i class="fa-solid fa-chevron-down"></i></button>
-            <button mat-button class="mx-3">الفعاليات <i class="fa-solid fa-chevron-down"></i></button>
-            <button mat-button class="mx-3">تواصل معنا</button>
+            <button mat-button class="mx-3 cursor-pointer" [routerLink]="['/home']"
+                routerLinkActive="active"><span>الرئيسية</span></button>
+            <button mat-button class="mx-3">
+                <span>قطاعات الوزارة </span>
+                <i class="fa-solid fa-chevron-down"></i></button>
+            <button mat-button class="mx-3 cursor-pointer" [routerLink]="['/home/electronic-serivce']"
+                routerLinkActive="active">
+                <span>
+                    الخدمات الإلكترونية </span> <i class="fa-solid fa-chevron-down"></i></button>
+            <button mat-button class="mx-3 cursor-pointer" routerLink="/home/news" routerLinkActive="active">
+                <span>
+                    ألأخبار </span><i class="fa-solid fa-chevron-down"></i></button>
+            <button mat-button class="mx-3">
+                <span>
+                    الفعاليات </span><i class="fa-solid fa-chevron-down"></i></button>
+            <button mat-button class="mx-3">
+                <span>
+                    تواصل معنا
+                </span></button>
         </div>
     </div>
     <div class="col-3">
-        <a type="button" class="btn p-2 px-5 cursor-pointer login-btn" (click)="navigateToLogin()"> <i class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول
+        <a type="button" class="btn p-2 px-5 cursor-pointer login-btn" (click)="navigateToLogin()"> <i
+                class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول
         </a>
     </div>
 </div>
