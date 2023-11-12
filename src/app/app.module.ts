@@ -9,6 +9,10 @@ import { RootComponent } from './core/Layout/root/root.component';
 import { HeaderComponent } from './core/Layout/header/header.component';
 import { FooterComponent } from './core/Layout/footer/footer.component';
 import { MenuComponent } from './core/Layout/menu/menu.component';
+import {LoginComponent} from "./pages/login/login.component";
+import {MatTabsModule} from "@angular/material/tabs";
+import {STEPPER_GLOBAL_OPTIONS} from "@angular/cdk/stepper";
+import {PdfViewerModule} from "ng2-pdf-viewer";
 
 @NgModule({
   declarations: [
@@ -16,15 +20,21 @@ import { MenuComponent } from './core/Layout/menu/menu.component';
     RootComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    MatTabsModule,
+    PdfViewerModule
   ],
-  providers: [],
+  providers: [ {
+    provide: STEPPER_GLOBAL_OPTIONS,
+    useValue: {displayDefaultIndicatorType: false},
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

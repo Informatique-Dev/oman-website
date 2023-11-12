@@ -8,8 +8,9 @@ import { AttatchmentComponent } from './new-request/attatchment/attatchment.comp
 import { PaymentComponent } from './new-request/payment/payment.component';
 import { ApplyPopupComponent } from './new-request/apply-popup/apply-popup.component';
 import { SharedModule } from '../shared/shared.module';
-import { LoginComponent } from './login/login.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {STEPPER_GLOBAL_OPTIONS} from "@angular/cdk/stepper";
+import {PdfViewerModule} from "ng2-pdf-viewer";
 
 const routes: Routes = [
   {
@@ -20,20 +21,21 @@ const routes: Routes = [
     path: 'request',
     component: NewRequestComponent,
   },
-  {
-    path: 'login',
-    component: LoginComponent
-  }
+
 ];
 
 @NgModule({
-  declarations: [HomeComponent, 
+  declarations: [HomeComponent,
      NewRequestComponent,
     ApplicantComponent,
     AttatchmentComponent,
     PaymentComponent,
-    ApplyPopupComponent,
-    LoginComponent],
-  imports: [CommonModule,SharedModule,RouterModule.forChild(routes), MatTabsModule],
+    ApplyPopupComponent
+  ],
+  providers: [ {
+    provide: STEPPER_GLOBAL_OPTIONS,
+    useValue: {displayDefaultIndicatorType: false},
+  },],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(routes), MatTabsModule, PdfViewerModule],
 })
 export class PagesModule {}

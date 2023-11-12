@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RootComponent } from './core/Layout/root/root.component';
+import {LoginComponent} from "./pages/login/login.component";
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: '',
+    path: 'home',
     component: RootComponent,
     children: [
       {
@@ -13,6 +15,10 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 ];
 
 @NgModule({

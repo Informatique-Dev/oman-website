@@ -6,5 +6,14 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html'
 })
 export class MenuComponent {
- 
+ constructor(private router: Router) {
+ }
+
+ navigateToHome(): void {
+   this.router.navigateByUrl('/home');
+ }
+
+  navigateToLogin(): void {
+    this.router.navigateByUrl('/login');
+  }
 }

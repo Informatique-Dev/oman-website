@@ -1,5 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, OnInit, SecurityContext, ViewChild} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-attatchment',
@@ -15,12 +16,13 @@ export class AttatchmentComponent implements OnInit{
   fileAttr: string = 'Choose File';
   pictureChanged: boolean = false;
   form!: FormGroup;
+  pdf: FormControl = new FormControl<any>('');
   picture!: FormControl;
   pictureCopy!: FormControl;
   personalImg!: FormControl;
   pictureNID!: FormControl;
 
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder, private sanitizer: DomSanitizer){}
   ngOnInit(): void {
     this.initForm()
   }
@@ -41,38 +43,15 @@ export class AttatchmentComponent implements OnInit{
     this.pictureNID = this.form.controls['pictureNID']as FormControl;
 
   }
-  openFile(): void {
-    this.inputElement.nativeElement.click();
-  }
-
-  openFilePrintCopy(): void {
-    this.inputElementPrintCopy.nativeElement.click();
-  }
-
-  openFilePersonalImg(): void {
-    this.inputElementPersonalImg.nativeElement.click();
-  }
-
-  openFilePictureNID(): void {
-    this.inputElementNID.nativeElement.click();
-  }
-
-
-  removeImage(img: any) {
-    img.value = '';
-    this.picture.setValue('');
-    this.pictureChanged = false;
-  }
 
   uploadFileEvtPrintCopy(imgFile: any): void {
     if (imgFile.target.files && imgFile.target.files[0]) {
       this.fileAttr = '';
       this.fileAttr += imgFile.target.files[0].name;
+      const isPdf = imgFile.target.files[0].type?.includes('application/pdf');
       let reader = new FileReader();
       reader.onload = (e: any): void => {
-        let image = new Image();
-        image.src = e.target.result;
-        this.pictureCopy.setValue(e.target.result);
+        this.pictureCopy.setValue(this.sanitizer.bypassSecurityTrustResourceUrl(e.target.result));
         this.pictureChanged = true;
       };
       reader.readAsDataURL(imgFile.target.files[0]);
@@ -84,12 +63,13 @@ export class AttatchmentComponent implements OnInit{
   uploadFileEvtPersonalImg(imgFile: any): void {
     if (imgFile.target.files && imgFile.target.files[0]) {
       this.fileAttr = '';
-      this.fileAttr += imgFile.target.files[0].name;
+      this.fileAttr += imgFile.target.files[0].name
+
+      const isPdf = imgFile.target.files[0].type?.includes('application/pdf');
+
       let reader = new FileReader();
       reader.onload = (e: any): void => {
-        let image = new Image();
-        image.src = e.target.result;
-        this.personalImg.setValue(e.target.result);
+        this.personalImg.setValue(this.sanitizer.bypassSecurityTrustResourceUrl(e.target.result));
         this.pictureChanged = true;
       };
       reader.readAsDataURL(imgFile.target.files[0]);
@@ -102,14 +82,17 @@ export class AttatchmentComponent implements OnInit{
     if (imgFile.target.files && imgFile.target.files[0]) {
       this.fileAttr = '';
       this.fileAttr += imgFile.target.files[0].name;
+
+      const isPdf = imgFile.target.files[0].type?.includes('application/pdf');
+
       let reader = new FileReader();
       reader.onload = (e: any): void => {
-        let image = new Image();
-        image.src = e.target.result;
-        this.picture.setValue(e.target.result);
+        this.pdf.reset();
+        this.picture.reset();
+        isPdf ? this.pdf.setValue(e.target.result) : this.picture.setValue(e.target.result);
         this.pictureChanged = true;
       };
-      reader.readAsDataURL(imgFile.target.files[0]);
+      isPdf ? reader.readAsArrayBuffer(imgFile.target.files[0]) : reader.readAsDataURL(imgFile.target.files[0]);
     } else {
       this.fileAttr = 'Choose File';
     }
@@ -119,16 +102,40 @@ export class AttatchmentComponent implements OnInit{
     if (imgFile.target.files && imgFile.target.files[0]) {
       this.fileAttr = '';
       this.fileAttr += imgFile.target.files[0].name;
+
+      const isPdf = imgFile.target.files[0].type?.includes('application/pdf');
+
       let reader = new FileReader();
       reader.onload = (e: any): void => {
-        let image = new Image();
-        image.src = e.target.result;
-        this.pictureNID.setValue(e.target.result);
+        this.pictureNID.setValue(isPdf ? this.base64ToBlob(e.target.result): e.target.result);
         this.pictureChanged = true;
       };
       reader.readAsDataURL(imgFile.target.files[0]);
     } else {
       this.fileAttr = 'Choose File';
     }
+  }
+
+  base64ToBlob( base64: string, type = "application/pdf" ) {
+    const data = base64.split(',');
+    const binStr = atob(data[1]);
+    const len = binStr.length;
+    const arr = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      arr[ i ] = binStr.charCodeAt( i );
+    }
+    const blob = new Blob( [ arr ], { type: type } );
+    const url = URL.createObjectURL( blob );
+    return url
+  }
+
+  base64ToArrayBuffer(base64: string) {
+    const data = base64.split(',');
+    var binaryString = atob(data[1]);
+    var bytes = new Uint8Array(binaryString.length);
+    for (var i = 0; i < binaryString.length; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+    return bytes.buffer;
   }
 }
