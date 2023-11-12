@@ -11,6 +11,8 @@ import { SharedModule } from '../shared/shared.module';
 import {MatTabsModule} from '@angular/material/tabs';
 import {STEPPER_GLOBAL_OPTIONS} from "@angular/cdk/stepper";
 import {PdfViewerModule} from "ng2-pdf-viewer";
+import { ElectronticSerivceComponent } from './electrontic-serivce/electrontic-serivce.component';
+import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,14 @@ const routes: Routes = [
     path: 'request',
     component: NewRequestComponent,
   },
-
+  {
+    path: 'electronic-serivce',
+    component: ElectronticSerivceComponent
+  },
+  {
+    path: 'news',
+    component: NewsComponent
+  }
 ];
 
 @NgModule({
@@ -30,7 +39,9 @@ const routes: Routes = [
     ApplicantComponent,
     AttatchmentComponent,
     PaymentComponent,
-    ApplyPopupComponent
+    ApplyPopupComponent,
+    ElectronticSerivceComponent,
+    NewsComponent
   ],
   providers: [ {
     provide: STEPPER_GLOBAL_OPTIONS,
