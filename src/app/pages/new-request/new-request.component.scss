@@ -1,3 +1,34 @@
 ::ng-deep .mat-step-header .mat-step-icon {
-    background: linear-gradient(to top,#72CABC 0%, #8B3C8F 100%);
- }
+  background: linear-gradient(to top, #72cabc 0%, #8b3c8f 100%);
+  padding: 36px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+::ng-deep .mat-stepper-horizontal-line {
+  border-top-width: 6px !important;
+  background-color: #F9F9F9;
+  border-top-style: solid;
+  flex: auto;
+  height: 0;
+  margin: 0 -16px;
+  min-width: 32px;
+  border-top-color: var(--mat-stepper-line-color);
+}
+::ng-deep .mat-horizontal-stepper-header .mat-step-label {
+  font-weight: 600;
+  color:#2D4163;
+}
+
+
+::ng-deep .mat-step-header.mat-step-editable {
+  background-color:#F9F9F9;
+  color:#8B3C8F;
+}
+
+.stepper-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
